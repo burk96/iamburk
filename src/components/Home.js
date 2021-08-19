@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5rem;
+  padding: 4rem;
   background: teal;
   height: 100vh;
   .window-header {
@@ -43,7 +43,7 @@ const Wrapper = styled.div`
     }
   }
   .window {
-    width: 400px;
+    width: 100%;
     min-height: 200px;
     flex-grow: 0;
     margin-bottom: 2rem;
