@@ -9,6 +9,7 @@ import {
   ListItem,
   Divider,
 } from 'react95';
+import { VscOctoface } from 'react-icons/vsc';
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -41,7 +42,7 @@ const Header = () => {
                   <span role="img" aria-label="🏠">
                     🏠
                   </span>
-                  Home
+                  &nbsp;Home
                 </Link>
               </ListItem>
               <ListItem>
@@ -49,15 +50,19 @@ const Header = () => {
                   <span role="img" aria-label="📁">
                     📁
                   </span>
-                  404
+                  &nbsp;404
                 </Link>
               </ListItem>
               <Divider />
-              <ListItem disabled>
-                <span role="img" aria-label="🔙">
-                  🔙
-                </span>
-                Logout
+              <ListItem>
+                <a
+                  href="https://github.com/burk96/iamburk"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <VscOctoface />
+                  &nbsp;Github
+                </a>
               </ListItem>
             </List>
           )}

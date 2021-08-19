@@ -9,7 +9,9 @@ const FourOhFour = () => {
         justifyContent: 'center',
         alignItems: 'center',
         background: '#1030b7',
-        height: '100vh',
+        flex: '1',
+        flexDirection: 'column',
+        fontFamily: 'monospace',
       }}
     >
       <h1
@@ -17,10 +19,20 @@ const FourOhFour = () => {
           background: '#b7b7b7',
           color: '#1030b7',
           width: 'min-content',
+          fontSize: '3rem',
         }}
       >
         404
       </h1>
+      <p
+        style={{
+          fontFamily: 'ms-sans-serif',
+          fonstSize: '3rem',
+          color: 'white',
+        }}
+      >
+        A fatal error has occurred: file not found
+      </p>
     </div>
   );
 };

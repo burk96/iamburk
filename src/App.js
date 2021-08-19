@@ -8,7 +8,7 @@ import original from 'react95/dist/themes/original';
 import ms_sans_serif from 'react95/dist/fonts/ms_sans_serif.woff2';
 import ms_sans_serif_bold from 'react95/dist/fonts/ms_sans_serif_bold.woff2';
 
-import { Header, Home, FourOhFour, Footer } from './components';
+import { Header, Home, FourOhFour } from './components';
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -34,15 +34,8 @@ const App = () => {
     <BrowserRouter>
       <GlobalStyles />
       <ThemeProvider theme={original}>
-        <div
-          id="App"
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            height: '100vh',
-          }}
-        >
-          <Header />
+        <Header />
+        <div style={{ display: 'flex', height: '100vh', flexDirection: 'column' }}>
           <Switch>
             <Route path={'/'} exact>
               <Home />
@@ -51,7 +44,6 @@ const App = () => {
               <FourOhFour />
             </Route>
           </Switch>
-          <Footer />
         </div>
       </ThemeProvider>
     </BrowserRouter>

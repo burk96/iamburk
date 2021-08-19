@@ -7,9 +7,8 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 4rem;
+  flex: 1;
   background: teal;
-  height: 100vh;
-  overflow: auto;
   .window-header {
     display: flex;
     align-items: center;
@@ -58,7 +57,7 @@ const Home = () => {
         <WindowHeader className="window-header">
           <span>iamburk.exe</span>
           <Button>
-            <span className="close-icon" />
+            <span className="close-icon">+</span>
           </Button>
         </WindowHeader>
         <Toolbar>
