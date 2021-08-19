@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Window, WindowContent, WindowHeader, Button, Toolbar } from 'react95';
 import FilterResults from 'react-filter-search';
 
-import { getPosts } from '../api';
+import { getProjects } from '../api';
 
 const Wrapper = styled.div`
   display: flex;
@@ -39,28 +39,28 @@ const Wrapper = styled.div`
   }
 `;
 
-const Home = (props) => {
+const Projects = (props) => {
   const { search } = props;
-  const [posts, setPosts] = useState([]);
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
     (async () => {
-      const result = await getPosts();
-      setPosts(result);
+      const result = await getProjects();
+      setProjects(result);
     })();
   }, []);
 
   return (
-    <Wrapper id="Home">
+    <Wrapper id="projects">
       <FilterResults
         value={search}
-        data={posts}
-        renderResults={(posts) => {
-          return posts.map((post, index) => {
+        data={projects}
+        renderResults={(projects) => {
+          return projects.map((project, index) => {
             return (
               <Window className="window" key={index}>
                 <WindowHeader className="window-header">
-                  <span>{post.title}</span>
+                  <span>{project.title}</span>
                   <Button>
                     <span className="close-icon">x</span>
                   </Button>
@@ -77,7 +77,7 @@ const Home = (props) => {
                   </Button>
                 </Toolbar>
                 <WindowContent>
-                  <p>{post.content}</p>
+                  <p>{project.content}</p>
                 </WindowContent>
               </Window>
             );
@@ -88,4 +88,4 @@ const Home = (props) => {
   );
 };
 
-export default Home;
+export default Projects;

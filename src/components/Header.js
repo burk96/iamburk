@@ -47,9 +47,17 @@ const Header = (props) => {
                 </Link>
               </ListItem>
               <ListItem>
-                <Link to={'/nothing'}>
+                <Link to={'/projects'}>
                   <span role="img" aria-label="📁">
                     📁
+                  </span>
+                  &nbsp;Projects
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link to={'/nothing'}>
+                  <span role="img" aria-label="❓">
+                    ❓
                   </span>
                   &nbsp;404
                 </Link>

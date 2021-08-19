@@ -13,3 +13,15 @@ export async function getPosts() {
 
   return posts;
 }
+
+export async function getProjects() {
+  // Faked for now 🤷‍♀️
+  const projects = [
+    {
+      title: 'Grace Shopper',
+      content: 'Gnarly project man!',
+    },
+  ];
+
+  return projects;
+}
