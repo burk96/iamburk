@@ -1,5 +1,6 @@
 import React from 'react';
 import { AppBar, Toolbar, Button } from 'react95';
+import { VscOctoface } from 'react-icons/vsc';
 
 const Footer = () => {
   return (
@@ -12,7 +13,8 @@ const Footer = () => {
             rel="noreferrer"
           >
             <Button variant="menu" size="sm">
-              Github
+              <VscOctoface />
+              &nbsp;Github
             </Button>
           </a>
         </div>
