@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   padding: 4rem;
   background: teal;
   height: 100vh;
+  overflow: auto;
   .window-header {
     display: flex;
     align-items: center;
@@ -52,7 +53,7 @@ const Wrapper = styled.div`
 
 const Home = () => {
   return (
-    <Wrapper>
+    <Wrapper className="Home">
       <Window className="window">
         <WindowHeader className="window-header">
           <span>iamburk.exe</span>
