@@ -19,32 +19,7 @@ const Wrapper = styled.div`
     justify-content: space-between;
   }
   .close-icon {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    margin-left: -1px;
-    margin-top: -1px;
-    transform: rotateZ(45deg);
-    position: relative;
-    &:before,
-    &:after {
-      content: '';
-      position: absolute;
-      background: ___CSS_0___;
-    }
-    &:before {
-      height: 100%;
-      width: 3px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    &:after {
-      height: 3px;
-      width: 100%;
-      left: 0px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+    font-weight: bold;
   }
   .window {
     width: 100%;
@@ -52,9 +27,9 @@ const Wrapper = styled.div`
     flex-grow: 0;
     margin-bottom: 2rem;
   }
+
   @media (min-width: 960px) {
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     align-items: flex-start;
     .window {
       width: 480px;
@@ -87,7 +62,7 @@ const Home = (props) => {
                 <WindowHeader className="window-header">
                   <span>{post.title}</span>
                   <Button>
-                    <span className="close-icon">+</span>
+                    <span className="close-icon">x</span>
                   </Button>
                 </WindowHeader>
                 <Toolbar>
