@@ -33,10 +33,10 @@ const Home = (props) => {
                   </Button>
                 </WindowHeader>
                 <Toolbar>
-                  <Button variant="menu" size="sm">
+                  <Button variant="menu" size="sm" disabled>
                     File
                   </Button>
-                  <Button variant="menu" size="sm">
+                  <Button variant="menu" size="sm" disabled>
                     Edit
                   </Button>
                   <Button variant="menu" size="sm" disabled>
