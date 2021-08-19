@@ -11,7 +11,8 @@ import {
 } from 'react95';
 import { VscOctoface } from 'react-icons/vsc';
 
-const Header = () => {
+const Header = (props) => {
+  const { search, setSearch } = props;
   const [open, setOpen] = useState(false);
 
   return (
@@ -68,7 +69,12 @@ const Header = () => {
           )}
         </div>
 
-        <TextField placeholder="Search..." width={150} />
+        <TextField
+          placeholder="Search..."
+          width={150}
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
       </Toolbar>
     </AppBar>
   );

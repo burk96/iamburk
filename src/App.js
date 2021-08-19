@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
@@ -30,15 +30,19 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 const App = () => {
+  const [search, setSearch] = useState('');
+
   return (
     <BrowserRouter>
       <GlobalStyles />
       <ThemeProvider theme={original}>
-        <Header />
-        <div style={{ display: 'flex', height: '100vh', flexDirection: 'column' }}>
+        <Header search={search} setSearch={setSearch} />
+        <div
+          style={{ display: 'flex', height: '100vh', flexDirection: 'column' }}
+        >
           <Switch>
             <Route path={'/'} exact>
-              <Home />
+              <Home search={search} />
             </Route>
             <Route>
               <FourOhFour />

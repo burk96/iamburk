@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Window, WindowContent, WindowHeader, Button, Toolbar } from 'react95';
+import FilterResults from 'react-filter-search';
+
+import { getPosts } from '../api';
 
 const Wrapper = styled.div`
   display: flex;
@@ -50,32 +53,51 @@ const Wrapper = styled.div`
   }
 `;
 
-const Home = () => {
+const Home = (props) => {
+  const { search } = props;
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const result = await getPosts();
+      setPosts(result);
+    })();
+  }, []);
+
   return (
     <Wrapper className="Home">
-      <Window className="window">
-        <WindowHeader className="window-header">
-          <span>iamburk.exe</span>
-          <Button>
-            <span className="close-icon">+</span>
-          </Button>
-        </WindowHeader>
-        <Toolbar>
-          <Button variant="menu" size="sm">
-            File
-          </Button>
-          <Button variant="menu" size="sm">
-            Edit
-          </Button>
-          <Button variant="menu" size="sm" disabled>
-            Save
-          </Button>
-        </Toolbar>
-        <WindowContent>
-          <p>This UI kit is crazy!</p>
-          <p>Can't wait to expand my site!</p>
-        </WindowContent>
-      </Window>
+      <FilterResults
+        value={search}
+        data={posts}
+        renderResults={(posts) => {
+          return posts.map((post, index) => {
+            return (
+              <Window className="window" key={index}>
+                <WindowHeader className="window-header">
+                  <span>{post.title}</span>
+                  <Button>
+                    <span className="close-icon">+</span>
+                  </Button>
+                </WindowHeader>
+                <Toolbar>
+                  <Button variant="menu" size="sm">
+                    File
+                  </Button>
+                  <Button variant="menu" size="sm">
+                    Edit
+                  </Button>
+                  <Button variant="menu" size="sm" disabled>
+                    Save
+                  </Button>
+                </Toolbar>
+                <WindowContent>
+                  <p>{post.content}</p>
+                </WindowContent>
+              </Window>
+            );
+          });
+        }}
+      />
     </Wrapper>
   );
 };
