@@ -6,15 +6,15 @@ const Footer = () => {
     <AppBar style={{ zIndex: '1', position: 'static' }}>
       <Toolbar style={{ justifyContent: 'space-between' }}>
         <div style={{ position: 'relative', display: 'inline-block' }}>
-          <Button variant="menu" size="sm">
-            <a
-              href="https://github.com/burk96/iamburk"
-              target="_blank"
-              rel="noreferrer"
-            >
+          <a
+            href="https://github.com/burk96/iamburk"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Button variant="menu" size="sm">
               Github
-            </a>
-          </Button>
+            </Button>
+          </a>
         </div>
       </Toolbar>
     </AppBar>
