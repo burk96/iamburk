@@ -11,21 +11,30 @@ async function buildTables() {
     await client.query(`
         DROP TABLE IF EXISTS posts;
         DROP TABLE IF EXISTS projects;
+        DROP TABLE IF EXISTS users;
+        CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
     `);
 
     await client.query(`
         CREATE TABLE posts(
-            id SERIAL PRIMARY KEY,
-            title VARCHAR(255) NOT NULL,
-            content TEXT
+          id SERIAL PRIMARY KEY,
+          title VARCHAR(255) NOT NULL,
+          content TEXT
         );
 
         CREATE TABLE projects(
-            id SERIAL PRIMARY KEY,
-            title VARCHAR(255) NOT NULL,
-            content TEXT,
-            deploy TEXT,
-            github TEXT
+          id SERIAL PRIMARY KEY,
+          title VARCHAR(255) NOT NULL,
+          content TEXT,
+          deploy TEXT,
+          github TEXT
+        );
+
+        CREATE TABLE users(
+          uuid UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+          username VARCHAR(255) UNIQUE NOT NULL,
+          password TEXT NOT NULL,
+          isadmin BOOLEAN DEFAULT false
         );
     `);
   } catch (error) {
