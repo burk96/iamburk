@@ -11,8 +11,10 @@ import {
 } from 'react95';
 import { VscOctoface } from 'react-icons/vsc';
 
+import themes from 'react95/dist/themes';
+
 const Header = (props) => {
-  const { search, setSearch } = props;
+  const { search, setSearch, setTheme } = props;
   const [open, setOpen] = useState(false);
 
   return (
@@ -63,6 +65,15 @@ const Header = (props) => {
                 </Link>
               </ListItem>
               <Divider />
+              {/* Need better styling on this button
+              <ListItem>
+                <Button variant="Primary Regular Disabled" onClick={() => {}}>
+                  <span role="img" aria-label="🎨">
+                    🎨
+                  </span>
+                  &nbsp;Themes
+                </Button>
+              </ListItem> */}
               <ListItem>
                 <a
                   href="https://github.com/burk96/iamburk"
