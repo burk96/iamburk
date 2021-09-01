@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
@@ -31,8 +31,15 @@ const GlobalStyles = createGlobalStyle`
 
 const App = () => {
   const [search, setSearch] = useState('');
-  // Kinda pointless for now but 🤷‍♀️ we're doing it
   const [theme, setTheme] = useState(themes.original);
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem('theme');
+
+    if (storedTheme) {
+      setTheme(themes[storedTheme]);
+    }
+  }, []);
 
   return (
     <BrowserRouter>
